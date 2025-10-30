@@ -21,15 +21,17 @@ class Program
         } while (entryNumber != 0);
         int sumNumbers = numbers.Sum();
         double averageNumbers = numbers.Average();
+        int largestNumber = 0;
+        foreach (int number in numbers)
+        {
+            if (number > largestNumber)
+            {
+                largestNumber = number;
+            }
+        }
         Console.WriteLine($"The sum is : {sumNumbers}");
         Console.WriteLine($"The average is: {averageNumbers}");
-            // Console.WriteLine($"The largest number is: {largest}");
-        
-        // for (int i = 0; i < numbers.Count; i++)
-        // {
-        //     Console.WriteLine(numbers[i]);
-        // }    
-        // Console.WriteLine(numbers.Count);
+        Console.WriteLine($"The largest number is: {largestNumber}");
     }
 }
         
