@@ -14,13 +14,15 @@ class Program
             Console.Write("Enter number: ");
             entry = Console.ReadLine();
             entryNumber = int.Parse(entry);
+            if (entryNumber != 0)
+            {
             numbers.Add(entryNumber);
+            }
         } while (entryNumber != 0);
         int sumNumbers = numbers.Sum();
-            // foreach (int number in numbers)
-           
+        double averageNumbers = numbers.Average();
         Console.WriteLine($"The sum is : {sumNumbers}");
-            // Console.WriteLine($"The average is: {average}");
+        Console.WriteLine($"The average is: {averageNumbers}");
             // Console.WriteLine($"The largest number is: {largest}");
         
         // for (int i = 0; i < numbers.Count; i++)
