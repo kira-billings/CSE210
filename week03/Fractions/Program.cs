@@ -5,6 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        // Adding this line so I can push with a better commit message.
         Fractions f1 = new Fractions();
         Fractions f2 = new Fractions(3);
         Fractions f3 = new Fractions(3, 5);
