@@ -1,30 +1,41 @@
+using System.IO;
+using System.Collections.Concurrent;
 
 public class Word
 {
     private string _text;
     private bool _isHidden;
-
+    
+    // constructor
     public Word(string text)
     {
         _text = text;
+        _isHidden = false;
     }
-    // following hides words
+    
+    // hides words 
     public void Hide()
     {
-        // stuff here
+        if (!_isHidden)
+        {
+            _text = new string('_', _text.Length);
+            _isHidden = true;
+        }
     }
+    // didn't use this method
     public void Show()
     {
-        // stuff here
+        
     }
-    public bool IsHidden()
+
+    // converts IsHidden to _isHidden
+    public bool IsHidden => _isHidden;
+
+    // returns words in string
+        public string GetDisplayText()
     {
-        return true;
-    }
-    public string GetDisplayText()
-    {
-        // stuff here
-        return "";
+        return _text;
     }
 }
-
+    
+ 

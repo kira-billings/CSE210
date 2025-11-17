@@ -1,33 +1,57 @@
-
 using System.Collections.Concurrent;
+using System.IO.Enumeration;
 using System.Runtime.CompilerServices;
+using System.IO;
+using System.Linq;
+using System.Data;
 
 public class Reference
 {
     private string _book;
     private int _chapter;
-    private int _verse;
+    private int _singleVerse;
+    private int _beginVerse;
     private int _endVerse;
-
-    public Reference(string book, int chapter, int verse, int endVerse)
+   
+    TextFile textFile = new TextFile();
+    public Reference()
     {
-        _book = book;
-        _chapter = chapter;
-        _verse = verse;
+        _book = "";
+        _chapter = 0;
+        _singleVerse = 0;
+        _endVerse = 0;
+        _beginVerse = 0;
+    }
+    public Reference(int beginVerse, int endVerse)
+    {
+        _book = "";
+        _chapter = 0;
+        _singleVerse = 0;
+        _beginVerse = beginVerse;
         _endVerse = endVerse;
     }
-
-    // following return single verse
-    public string GetDisplayText()
+    
+    public Reference(int singleVerse)
     {
-        string text = $"{_book} {_chapter}:{_verse}";
-        return text;
+        _book = "";
+        _chapter = 0;
+        _singleVerse = singleVerse;
+        _beginVerse = 0;
+        _endVerse = 0;
     }
-    // following returns multiple verses in the reference
-    public string GetDisplayText2()
-    {
-        string text = $"{_book} {_chapter}:{_verse}-{_endVerse}";
-        return text;  
-     }
 
+    // creates single verse reference
+    public string GetSingleDisplayReference()
+    {
+        _book = textFile.GetBook();
+        _chapter = textFile.GetChapter();
+        return $"{_book} {_chapter}:{_singleVerse}";
+    }
+    // creates multiple verse reference
+    public string GetMultiDisplayReference()
+    {
+        _book = textFile.GetBook();
+        _chapter = textFile.GetChapter();
+        return $"{_book} {_chapter}:{_beginVerse}-{_endVerse}";
+    }
 }
