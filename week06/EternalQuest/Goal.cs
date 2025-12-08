@@ -2,15 +2,21 @@ using System.ComponentModel;
 
 public abstract class Goal
 {
-    private string _shortName;
-    private string _description;
-    private int _points;
-    public Goal(string shortName, string description, int points)
+    protected string _shortName;
+    protected string _description;
+    protected int _points;
+    protected bool _isComplete;
+    public Goal(string shortName, string description, int points, bool isComplete)
     {
-        
+        _shortName = shortName;
+        _description = description;
+        _points = points;
+        _isComplete = isComplete;
     }
     public abstract void RecordEvent();
     public abstract bool IsComplete();
-    public abstract string GetDetailsString();
+    public abstract string GetDetailsString(); 
+
     public abstract string GetStringRepresentation();
+    public abstract int GetPoints();
 }
